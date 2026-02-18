@@ -1,8 +1,40 @@
+import Swal from "sweetalert2";
+
 const CreateCoffee = () => {
-  const handleCreateCoffeeSubmit = (e) => {
+  const handleCreateCoffeeSubmit = async (e) => {
     e.preventDefault();
+    const name = e.target.name.value;
+    const quantity = e.target.quantity.value;
+    const supplier = e.target.supplier.value;
+    const taste = e.target.taste.value;
+    const category = e.target.category.value;
+    const details = e.target.details.value;
+    const photo = e.target.photo.value;
+    const createCoffee = {
+      name,
+      quantity,
+      supplier,
+      taste,
+      category,
+      details,
+      photo,
+    };
+    // console.log(createCoffee);
+
+    const response = await fetch(`http://localhost:5000/createcoffees`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(createCoffee),
+    });
+    const data = await response.json();
+    console.log(data);
+    if (data.insertedId) {
+      Swal.fire("create coffee successfully");
+    }
   };
-  
+
   return (
     <div>
       <section className="w-11/12 mx-auto">
