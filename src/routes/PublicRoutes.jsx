@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
-import Home from "../pages/Home";
+import Home from "../components/Home";
+import CreateCoffee from "../components/CreateCoffee";
 
 const PublicRoutes = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const PublicRoutes = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: "/createCoffee",
+        element: <CreateCoffee></CreateCoffee>,
       },
     ],
   },
