@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import Home from "../components/Home";
 import CreateCoffee from "../components/CreateCoffee";
+import UpdateCoffee from "../components/UpdateCoffee";
 
 const PublicRoutes = createBrowserRouter([
   {
@@ -16,6 +17,12 @@ const PublicRoutes = createBrowserRouter([
       {
         path: "/createCoffee",
         element: <CreateCoffee></CreateCoffee>,
+      },
+      {
+        path: "/updateCoffee/:id",
+        element: <UpdateCoffee></UpdateCoffee>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/readCoffees/${params.id}`),
       },
     ],
   },

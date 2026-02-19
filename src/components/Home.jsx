@@ -7,7 +7,7 @@ const Home = () => {
   const loadedCoffees = useLoaderData();
   // console.log(loadedCoffees);
   const [showCards, setShowCards] = useState(loadedCoffees);
-  console.log(showCards);
+  // console.log(showCards);
 
   const handleDeleteCoffee = (id) => {
     // console.log(id);
