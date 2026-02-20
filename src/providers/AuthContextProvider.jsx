@@ -46,12 +46,13 @@ const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // step 5
+  // step 5a
   const registerUser = (email, password) => {
     setLoading(false);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // step 5b
   const updateProfileOfUser = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,

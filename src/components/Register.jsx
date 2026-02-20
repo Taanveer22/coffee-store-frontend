@@ -13,11 +13,13 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     // console.log(name, photo, email, password);
-    const createUser = { email, name, photo };
 
     registerUser(email, password)
       .then((result) => {
-        Swal.fire(result.user.displayName || "register done");
+        Swal.fire(result?.user?.displayName || "register done");
+        const creationTime = result?.user?.metadata?.creationTime;
+        const createUser = { email, name, photo, creationTime };
+        //  console.log(result?.user?.metadata?.creationTime);
         updateProfileOfUser(name, photo)
           .then(() => {
             Swal.fire("user update done");
