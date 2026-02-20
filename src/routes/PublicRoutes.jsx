@@ -3,6 +3,7 @@ import RootLayout from "../layouts/RootLayout";
 import Home from "../components/Home";
 import CreateCoffee from "../components/CreateCoffee";
 import UpdateCoffee from "../components/UpdateCoffee";
+import Register from "../components/Register";
 
 const PublicRoutes = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const PublicRoutes = createBrowserRouter([
         element: <UpdateCoffee></UpdateCoffee>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/readCoffees/${params.id}`),
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
     ],
   },
