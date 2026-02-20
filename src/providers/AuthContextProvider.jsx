@@ -23,7 +23,7 @@
 // ===============================
 // STEP 7: Create Object to Pass in Context
 // ===============================
-//  STEP 8: Wrap c with AuthContext Provider
+//  STEP 8: Wrap children with AuthContext Provider
 // ===============================
 // STEP 9: Export Context & Provider
 // ===============================
@@ -33,6 +33,7 @@ import auth from "../firebase/firebase.init";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 
@@ -49,6 +50,13 @@ const AuthContextProvider = ({ children }) => {
   const registerUser = (email, password) => {
     setLoading(false);
     return createUserWithEmailAndPassword(auth, email, password);
+  };
+
+  const updateProfileOfUser = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
 
   // step 6
@@ -71,6 +79,7 @@ const AuthContextProvider = ({ children }) => {
     user,
     loading,
     registerUser,
+    updateProfileOfUser,
   };
 
   // step 8
