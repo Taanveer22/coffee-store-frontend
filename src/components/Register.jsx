@@ -26,16 +26,13 @@ const Register = () => {
         updateProfileOfUser(name, photo)
           .then(() => {
             Swal.fire("user update done");
-            fetch(
-              `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/createUsers`,
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify(createUser),
+            fetch(`https://coffee-store-backend-rho.vercel.app/createUsers`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
               },
-            )
+              body: JSON.stringify(createUser),
+            })
               .then((res) => res.json())
               .then((data) => {
                 // console.log("database data ", data);

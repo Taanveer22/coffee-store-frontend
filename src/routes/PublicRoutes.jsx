@@ -16,9 +16,7 @@ const PublicRoutes = createBrowserRouter([
         index: true,
         element: <Home></Home>,
         loader: () =>
-          fetch(
-            `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/readCoffees`,
-          ),
+          fetch(`https://coffee-store-backend-rho.vercel.app/readCoffees`),
       },
       {
         path: "/createCoffee",
@@ -29,7 +27,7 @@ const PublicRoutes = createBrowserRouter([
         element: <UpdateCoffee></UpdateCoffee>,
         loader: ({ params }) =>
           fetch(
-            `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/readCoffees/${params.id}`,
+            `https://coffee-store-backend-rho.vercel.app/readCoffees/${params.id}`,
           ),
       },
       {
@@ -44,9 +42,7 @@ const PublicRoutes = createBrowserRouter([
         path: "/users",
         element: <Users></Users>,
         loader: () =>
-          fetch(
-            `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/readUsers`,
-          ),
+          fetch(`https://coffee-store-backend-rho.vercel.app/readUsers`),
       },
     ],
   },

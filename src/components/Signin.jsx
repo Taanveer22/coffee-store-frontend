@@ -21,7 +21,7 @@ const Signin = () => {
         const updateUserInfo = { email, lastSignInTime };
 
         fetch(
-          `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/updateUsers/${email}`,
+          `https://coffee-store-backend-rho.vercel.app/updateUsers/${email}`,
           {
             method: "PATCH",
             headers: {

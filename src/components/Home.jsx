@@ -36,7 +36,7 @@ const Home = () => {
       // async is inside then block
       if (result.isConfirmed) {
         const res = await fetch(
-          `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/deleteCoffees/${id}`,
+          `https://coffee-store-backend-rho.vercel.app/deleteCoffees/${id}`,
           {
             method: "DELETE",
           },

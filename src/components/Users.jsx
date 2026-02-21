@@ -38,12 +38,9 @@ const Users = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/deleteUsers/${id}`,
-          {
-            method: "DELETE",
-          },
-        )
+        fetch(`https://coffee-store-backend-rho.vercel.app/deleteUsers/${id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);

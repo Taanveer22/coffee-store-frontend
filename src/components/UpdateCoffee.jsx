@@ -26,7 +26,7 @@ const UpdateCoffee = () => {
     // console.log(updateCoffee);
 
     const res = await fetch(
-      `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/updateCoffees/${loadedOneCoffee?._id}`,
+      `https://coffee-store-backend-rho.vercel.app/updateCoffees/${loadedOneCoffee?._id}`,
       {
         method: "PUT",
         headers: {

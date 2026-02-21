@@ -22,7 +22,7 @@ const CreateCoffee = () => {
     // console.log(createCoffee);
 
     const response = await fetch(
-      `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/createCoffees`,
+      `https://coffee-store-backend-rho.vercel.app/createCoffees`,
       {
         method: "POST",
         headers: {
