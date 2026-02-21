@@ -33,6 +33,8 @@ import auth from "../firebase/firebase.init";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
@@ -53,6 +55,17 @@ const AuthContextProvider = ({ children }) => {
   };
 
   // step 5b
+  const signInUser = (email, password) => {
+    setLoading(false);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const signOutUser = () => {
+    setLoading(false);
+    signOut(auth);
+  };
+
+  // step 5c
   const updateProfileOfUser = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
@@ -80,6 +93,8 @@ const AuthContextProvider = ({ children }) => {
     user,
     loading,
     registerUser,
+    signInUser,
+    signOutUser,
     updateProfileOfUser,
   };
 

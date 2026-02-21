@@ -1,13 +1,26 @@
 import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CoffeeCard from "./CoffeeCard";
 import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthContextProvider";
 
 const Home = () => {
   const loadedCoffees = useLoaderData();
   // console.log(loadedCoffees);
   const [showCards, setShowCards] = useState(loadedCoffees);
   // console.log(showCards);
+  const { user, signOutUser } = useContext(AuthContext);
+  // console.log(user);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then(() => {
+        Swal.fire("sign out successful");
+      })
+      .catch(() => {
+        Swal.fire("sign out failed");
+      });
+  };
 
   const handleDeleteCoffee = (id) => {
     // console.log(id);
@@ -43,6 +56,14 @@ const Home = () => {
 
   return (
     <div className="w-11/12 mx-auto my-12">
+      <div className="flex justify-center items-center gap-6 mb-6">
+        <p className="text-xl font-medium">
+          Username : {user ? user.displayName : "No name found"}
+        </p>
+        <button onClick={handleSignOut} className="btn btn-warning">
+          Sign out from here
+        </button>
+      </div>
       <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {/* Make sure you are mapping 'showCards', NOT 'loadedCoffees' */}
         {showCards.map((item) => (

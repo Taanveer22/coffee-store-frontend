@@ -38,7 +38,7 @@ const Users = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}`, {
+        fetch(`http://localhost:5000/deleteUsers/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -72,6 +72,7 @@ const Users = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Creation Time </th>
+              <th>Last Signin Time </th>
               <th>Action </th>
             </tr>
           </thead>
@@ -82,13 +83,13 @@ const Users = () => {
                 <td>{element.name}</td>
                 <td>{element.email}</td>
                 <td>{element.creationTime}</td>
+                <td>{element.lastSignInTime}</td>
                 <td>
-                  <button className="btn btn-xs btn-info">E</button>{" "}
                   <button
                     onClick={() => handleDeleteUser(element._id)}
                     className="btn btn-xs btn-error"
                   >
-                    D
+                    X
                   </button>
                 </td>
               </tr>

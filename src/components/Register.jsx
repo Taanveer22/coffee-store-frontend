@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthContextProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { registerUser, updateProfileOfUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegisterForm = (e) => {
     e.preventDefault();
@@ -16,6 +18,7 @@ const Register = () => {
 
     registerUser(email, password)
       .then((result) => {
+        navigate("/");
         Swal.fire(result?.user?.displayName || "register done");
         const creationTime = result?.user?.metadata?.creationTime;
         const createUser = { email, name, photo, creationTime };
@@ -23,7 +26,7 @@ const Register = () => {
         updateProfileOfUser(name, photo)
           .then(() => {
             Swal.fire("user update done");
-            fetch(`http://localhost:5000/users`, {
+            fetch(`http://localhost:5000/createUsers`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

@@ -29,7 +29,7 @@ const CreateCoffee = () => {
       body: JSON.stringify(createCoffee),
     });
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     if (data.insertedId) {
       Swal.fire("create coffee successfully");
     }
