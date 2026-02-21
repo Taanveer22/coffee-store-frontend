@@ -20,13 +20,16 @@ const Signin = () => {
         const lastSignInTime = result?.user?.metadata?.lastSignInTime;
         const updateUserInfo = { email, lastSignInTime };
 
-        fetch(`http://localhost:5000/updateUsers/${email}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
+        fetch(
+          `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/updateUsers/${email}`,
+          {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updateUserInfo),
           },
-          body: JSON.stringify(updateUserInfo),
-        })
+        )
           .then((res) => res.json())
           .then((data) => {
             // console.log(data);

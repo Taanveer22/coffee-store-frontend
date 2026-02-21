@@ -15,7 +15,10 @@ const PublicRoutes = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
-        loader: () => fetch(`http://localhost:5000/readCoffees`),
+        loader: () =>
+          fetch(
+            `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/readCoffees`,
+          ),
       },
       {
         path: "/createCoffee",
@@ -25,7 +28,9 @@ const PublicRoutes = createBrowserRouter([
         path: "/updateCoffee/:id",
         element: <UpdateCoffee></UpdateCoffee>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/readCoffees/${params.id}`),
+          fetch(
+            `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/readCoffees/${params.id}`,
+          ),
       },
       {
         path: "/register",
@@ -38,7 +43,10 @@ const PublicRoutes = createBrowserRouter([
       {
         path: "/users",
         element: <Users></Users>,
-        loader: () => fetch(`http://localhost:5000/readUsers`),
+        loader: () =>
+          fetch(
+            `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/readUsers`,
+          ),
       },
     ],
   },

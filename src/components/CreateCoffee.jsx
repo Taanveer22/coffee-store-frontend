@@ -21,13 +21,16 @@ const CreateCoffee = () => {
     };
     // console.log(createCoffee);
 
-    const response = await fetch(`http://localhost:5000/createCoffees`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/createCoffees`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(createCoffee),
       },
-      body: JSON.stringify(createCoffee),
-    });
+    );
     const data = await response.json();
     // console.log(data);
     if (data.insertedId) {

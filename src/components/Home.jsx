@@ -35,9 +35,12 @@ const Home = () => {
     }).then(async (result) => {
       // async is inside then block
       if (result.isConfirmed) {
-        const res = await fetch(`http://localhost:5000/deleteCoffees/${id}`, {
-          method: "DELETE",
-        });
+        const res = await fetch(
+          `https://coffee-store-backend-dcench5jp-taanveer22s-projects.vercel.app/deleteCoffees/${id}`,
+          {
+            method: "DELETE",
+          },
+        );
         const data = await res.json();
         // console.log(data);
         if (data.deletedCount > 0) {
